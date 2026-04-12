@@ -18,7 +18,6 @@
             --text: #C8B89A;
             --text2: #8A7A62;
             --text3: #5A4E3C;
-            --green: #27AE60;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,15 +26,15 @@
             background: var(--bg);
             color: var(--text);
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 17px;
-            line-height: 1.85;
+            font-size: 20px;
+            line-height: 1.9;
             min-height: 100vh;
         }
 
         .page {
-            max-width: 720px;
+            max-width: 780px;
             margin: 0 auto;
-            padding: 64px 32px 96px;
+            padding: 64px 40px 96px;
         }
 
         /* Header ornament */
@@ -45,40 +44,28 @@
             gap: 16px;
             margin-bottom: 48px;
         }
-        .ornament-line {
-            flex: 1;
-            height: 0.5px;
-            background: var(--border2);
-        }
-        .ornament-symbol {
-            color: var(--gold);
-            font-size: 18px;
-            letter-spacing: 8px;
-        }
+        .ornament-line { flex: 1; height: 0.5px; background: var(--border2); }
+        .ornament-symbol { color: var(--gold); font-size: 20px; letter-spacing: 8px; }
 
         /* App header */
-        .header {
-            text-align: center;
-            margin-bottom: 16px;
-        }
+        .header { text-align: center; margin-bottom: 16px; }
         .header-eyebrow {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 11px;
+            font-size: 13px;
             letter-spacing: 5px;
             color: var(--gold);
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         .header-title {
             font-family: 'IM Fell English', Georgia, serif;
             font-style: italic;
-            font-size: 52px;
+            font-size: 62px;
             color: var(--gold3);
             line-height: 1.1;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .header-subtitle {
-            font-size: 13px;
+            font-size: 16px;
             color: var(--text2);
             letter-spacing: 1.5px;
         }
@@ -91,8 +78,8 @@
             margin: 40px 0;
         }
         .diamond-sep .line { flex: 1; height: 0.5px; background: var(--border2); }
-        .diamond-sep .d1 { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
-        .diamond-sep .d2 { width: 4px; height: 4px; background: var(--border2); transform: rotate(45deg); }
+        .diamond-sep .d1 { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+        .diamond-sep .d2 { width: 4px; height: 4px; background: var(--border2); transform: rotate(45deg); flex-shrink: 0; }
 
         /* Last update badge */
         .badge {
@@ -100,10 +87,10 @@
             background: var(--bg3);
             border: 0.5px solid var(--border2);
             border-radius: 4px;
-            padding: 4px 12px;
-            font-size: 11px;
+            padding: 6px 16px;
+            font-size: 13px;
             color: var(--text3);
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-bottom: 40px;
         }
 
@@ -113,11 +100,11 @@
             background: var(--bg2);
             border: 0.5px solid var(--border);
             border-radius: 8px;
-            padding: 28px 32px;
+            padding: 32px 36px;
         }
 
         .section-number {
-            font-size: 10px;
+            font-size: 12px;
             letter-spacing: 3px;
             color: var(--gold);
             text-transform: uppercase;
@@ -126,31 +113,30 @@
 
         .section-title {
             font-family: 'IM Fell English', Georgia, serif;
-            font-size: 22px;
+            font-size: 26px;
             color: var(--gold3);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             font-weight: 400;
         }
 
         .section p {
             color: var(--text);
-            margin-bottom: 12px;
-            font-size: 16px;
+            margin-bottom: 14px;
+            font-size: 19px;
+            line-height: 1.85;
         }
 
         .section p:last-child { margin-bottom: 0; }
 
-        .section ul {
-            list-style: none;
-            margin: 12px 0;
-        }
+        .section ul { list-style: none; margin: 14px 0; }
 
         .section ul li {
-            font-size: 16px;
+            font-size: 19px;
             color: var(--text);
-            padding: 6px 0 6px 20px;
+            padding: 8px 0 8px 24px;
             border-bottom: 0.5px solid var(--border);
             position: relative;
+            line-height: 1.7;
         }
 
         .section ul li:last-child { border-bottom: none; }
@@ -160,8 +146,8 @@
             position: absolute;
             left: 0;
             color: var(--gold);
-            font-size: 8px;
-            top: 10px;
+            font-size: 9px;
+            top: 12px;
         }
 
         /* Highlight box */
@@ -169,11 +155,12 @@
             background: var(--bg3);
             border-left: 2px solid var(--gold);
             border-radius: 0 4px 4px 0;
-            padding: 14px 18px;
-            margin: 16px 0;
+            padding: 16px 20px;
+            margin: 18px 0;
             font-style: italic;
             color: var(--gold2);
-            font-size: 15px;
+            font-size: 18px;
+            line-height: 1.75;
         }
 
         /* Contact section */
@@ -181,61 +168,58 @@
             background: var(--bg3);
             border: 0.5px solid var(--border2);
             border-radius: 8px;
-            padding: 24px 28px;
+            padding: 32px;
             text-align: center;
             margin-top: 48px;
         }
         .contact-box .contact-label {
-            font-size: 10px;
+            font-size: 12px;
             letter-spacing: 4px;
             color: var(--gold);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .contact-box .contact-title {
             font-family: 'IM Fell English', serif;
-            font-size: 20px;
+            font-size: 26px;
             color: var(--gold3);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .contact-box p {
+            font-size: 17px;
+            color: var(--text2);
+            margin-bottom: 14px;
         }
         .contact-box a {
             color: var(--gold2);
             text-decoration: none;
-            font-size: 15px;
+            font-size: 18px;
             border-bottom: 0.5px solid var(--border2);
             padding-bottom: 2px;
         }
         .contact-box a:hover { color: var(--gold3); border-color: var(--gold); }
 
         /* Footer */
-        .footer {
-            margin-top: 64px;
-            text-align: center;
-        }
-        .footer-text {
-            font-size: 11px;
-            color: var(--text3);
-            letter-spacing: 2px;
-        }
+        .footer { margin-top: 64px; text-align: center; }
+        .footer-text { font-size: 13px; color: var(--text3); letter-spacing: 2px; }
 
         /* Responsive */
         @media (max-width: 600px) {
             .page { padding: 40px 20px 64px; }
-            .header-title { font-size: 38px; }
-            .section { padding: 20px 20px; }
+            .header-title { font-size: 44px; }
+            .section { padding: 24px 20px; }
+            .section p, .section ul li { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <!-- Ornamento -->
     <div class="ornament">
         <div class="ornament-line"></div>
         <div class="ornament-symbol">✦ ✦ ✦</div>
         <div class="ornament-line"></div>
     </div>
 
-    <!-- Header -->
     <div class="header">
         <div class="header-eyebrow">Informativa sulla Privacy</div>
         <div class="header-title">Poesie App</div>
@@ -243,29 +227,21 @@
     </div>
 
     <div class="diamond-sep">
-        <div class="line"></div>
-        <div class="d1"></div>
-        <div class="d2"></div>
-        <div class="d1"></div>
-        <div class="line"></div>
+        <div class="line"></div><div class="d1"></div><div class="d2"></div><div class="d1"></div><div class="line"></div>
     </div>
 
     <div style="text-align:center;">
         <div class="badge">ULTIMO AGGIORNAMENTO: APRILE 2026</div>
     </div>
 
-    <!-- Sezione 1 -->
     <div class="section">
         <div class="section-number">01</div>
         <div class="section-title">Introduzione</div>
         <p>Poesie App è un'applicazione mobile per Android che consente agli utenti di creare, gestire e conservare la propria raccolta personale di poesie, con sincronizzazione tramite Google Drive.</p>
         <p>La presente informativa descrive in modo trasparente quali dati vengono trattati, come vengono utilizzati e quali diritti hai come utente.</p>
-        <div class="highlight">
-            Lo sviluppatore non raccoglie, non archivia e non ha accesso ai contenuti delle tue poesie né ai tuoi dati personali.
-        </div>
+        <div class="highlight">Lo sviluppatore non raccoglie, non archivia e non ha accesso ai contenuti delle tue poesie né ai tuoi dati personali.</div>
     </div>
 
-    <!-- Sezione 2 -->
     <div class="section">
         <div class="section-number">02</div>
         <div class="section-title">Dati trattati</div>
@@ -278,7 +254,6 @@
         <p>Nessun dato viene inviato a server di terze parti o dello sviluppatore.</p>
     </div>
 
-    <!-- Sezione 3 -->
     <div class="section">
         <div class="section-number">03</div>
         <div class="section-title">Google Drive</div>
@@ -289,12 +264,9 @@
             <li>Il file Poesie.docx rimane di tua proprietà e sotto il tuo controllo</li>
             <li>Puoi revocare l'accesso in qualsiasi momento dalle impostazioni Google</li>
         </ul>
-        <div class="highlight">
-            Puoi revocare i permessi dell'app visitando myaccount.google.com → Sicurezza → App con accesso al tuo account.
-        </div>
+        <div class="highlight">Puoi revocare i permessi dell'app visitando myaccount.google.com → Sicurezza → App con accesso al tuo account.</div>
     </div>
 
-    <!-- Sezione 4 -->
     <div class="section">
         <div class="section-number">04</div>
         <div class="section-title">Archiviazione locale</div>
@@ -307,7 +279,6 @@
         <p>Questi dati vengono eliminati automaticamente alla disinstallazione dell'app o manualmente tramite la funzione "Disconnetti" nelle impostazioni.</p>
     </div>
 
-    <!-- Sezione 5 -->
     <div class="section">
         <div class="section-number">05</div>
         <div class="section-title">Condivisione con terze parti</div>
@@ -315,7 +286,6 @@
         <p>L'unica terza parte coinvolta è Google LLC, per il servizio di autenticazione e archiviazione tramite Google Drive. Il trattamento dei dati da parte di Google è regolato dalla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>.</p>
     </div>
 
-    <!-- Sezione 6 -->
     <div class="section">
         <div class="section-number">06</div>
         <div class="section-title">Diritti dell'utente</div>
@@ -328,14 +298,12 @@
         </ul>
     </div>
 
-    <!-- Sezione 7 -->
     <div class="section">
         <div class="section-number">07</div>
         <div class="section-title">Minori</div>
         <p>Poesie App non è destinata a utenti di età inferiore ai 13 anni. Lo sviluppatore non raccoglie consapevolmente dati personali di minori.</p>
     </div>
 
-    <!-- Sezione 8 -->
     <div class="section">
         <div class="section-number">08</div>
         <div class="section-title">Modifiche alla Privacy Policy</div>
@@ -343,21 +311,15 @@
         <p>L'uso continuato dell'app dopo le modifiche costituisce accettazione della nuova informativa.</p>
     </div>
 
-    <!-- Contatti -->
     <div class="contact-box">
         <div class="contact-label">CONTATTI</div>
         <div class="contact-title">Hai domande?</div>
-        <p style="font-size:14px; color: var(--text2); margin-bottom:12px;">Per qualsiasi domanda relativa alla privacy puoi contattare lo sviluppatore:</p>
+        <p>Per qualsiasi domanda relativa alla privacy puoi contattare lo sviluppatore:</p>
         <a href="mailto:supporto.poesie.app@gmail.com">supporto.poesie.app@gmail.com</a>
     </div>
 
-    <!-- Footer -->
     <div class="diamond-sep" style="margin-top: 64px;">
-        <div class="line"></div>
-        <div class="d1"></div>
-        <div class="d2"></div>
-        <div class="d1"></div>
-        <div class="line"></div>
+        <div class="line"></div><div class="d1"></div><div class="d2"></div><div class="d1"></div><div class="line"></div>
     </div>
 
     <div class="footer">
