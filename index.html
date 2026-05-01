@@ -163,6 +163,40 @@
             line-height: 1.75;
         }
 
+        /* Permission table */
+        .perm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 18px;
+        }
+        .perm-table thead tr {
+            border-bottom: 0.5px solid var(--border2);
+        }
+        .perm-table th {
+            text-align: left;
+            font-family: 'IM Fell English', Georgia, serif;
+            font-weight: 400;
+            color: var(--gold2);
+            padding: 8px 12px 10px;
+            font-size: 17px;
+            letter-spacing: 1px;
+        }
+        .perm-table td {
+            padding: 10px 12px;
+            color: var(--text);
+            border-bottom: 0.5px solid var(--border);
+            vertical-align: top;
+            line-height: 1.65;
+        }
+        .perm-table tr:last-child td { border-bottom: none; }
+        .perm-table td:first-child {
+            color: var(--gold2);
+            white-space: nowrap;
+            padding-right: 20px;
+            font-size: 17px;
+        }
+
         /* Contact section */
         .contact-box {
             background: var(--bg3);
@@ -208,6 +242,8 @@
             .header-title { font-size: 44px; }
             .section { padding: 24px 20px; }
             .section p, .section ul li { font-size: 18px; }
+            .perm-table { font-size: 16px; }
+            .perm-table td:first-child { white-space: normal; }
         }
     </style>
 </head>
@@ -231,7 +267,7 @@
     </div>
 
     <div style="text-align:center;">
-        <div class="badge">ULTIMO AGGIORNAMENTO: APRILE 2026</div>
+        <div class="badge">ULTIMO AGGIORNAMENTO: MAGGIO 2026</div>
     </div>
 
     <div class="section">
@@ -250,6 +286,7 @@
             <li>Indirizzo email dell'account Google, visualizzato nella schermata impostazioni dell'app</li>
             <li>File <strong>Poesie.docx</strong> creato dall'app nel tuo Google Drive personale</li>
             <li>Token di autenticazione OAuth 2.0, salvato localmente sul dispositivo</li>
+            <li>Immagini selezionate dalla galleria fotografica del dispositivo, utilizzate esclusivamente per impostare la copertina personalizzata della raccolta</li>
         </ul>
         <p>Nessun dato viene inviato a server di terze parti o dello sviluppatore.</p>
     </div>
@@ -275,19 +312,49 @@
             <li>Token OAuth 2.0 per il mantenimento della sessione Google</li>
             <li>Copia temporanea del file Poesie.docx durante la modifica</li>
             <li>Preferenze dell'app come la lingua selezionata</li>
+            <li>Immagine di copertina personalizzata, salvata nella directory AppDataDirectory del dispositivo</li>
         </ul>
         <p>Questi dati vengono eliminati automaticamente alla disinstallazione dell'app o manualmente tramite la funzione "Disconnetti" nelle impostazioni.</p>
     </div>
 
     <div class="section">
         <div class="section-number">05</div>
+        <div class="section-title">Permessi richiesti</div>
+        <p>Per funzionare correttamente, l'app richiede i seguenti permessi Android:</p>
+        <table class="perm-table">
+            <thead>
+                <tr>
+                    <th>Permesso</th>
+                    <th>Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Google Drive</td>
+                    <td>Lettura e scrittura del file Poesie.docx per la sincronizzazione della raccolta tramite account Google (scope <em>drive.file</em>)</td>
+                </tr>
+                <tr>
+                    <td>Galleria foto</td>
+                    <td>Selezione di un'immagine dal dispositivo per impostare la copertina personalizzata della raccolta. L'accesso è limitato al file scelto dall'utente e non all'intera libreria</td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td>Comunicazione con le API di Google per l'autenticazione e la sincronizzazione su Google Drive</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Nessun permesso viene utilizzato per scopi diversi da quelli indicati.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-number">06</div>
         <div class="section-title">Condivisione con terze parti</div>
         <p>Lo sviluppatore non condivide, non vende e non cede a terze parti alcun dato dell'utente.</p>
         <p>L'unica terza parte coinvolta è Google LLC, per il servizio di autenticazione e archiviazione tramite Google Drive. Il trattamento dei dati da parte di Google è regolato dalla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>.</p>
     </div>
 
     <div class="section">
-        <div class="section-number">06</div>
+        <div class="section-number">07</div>
         <div class="section-title">Diritti dell'utente</div>
         <p>In qualità di utente hai il diritto di:</p>
         <ul>
@@ -299,7 +366,7 @@
     </div>
 
     <div class="section">
-        <div class="section-number">07</div>
+        <div class="section-number">08</div>
         <div class="section-title">Minori</div>
         <p>Poesie App non è destinata a utenti di età inferiore ai 14 anni.
             Lo sviluppatore non raccoglie consapevolmente dati personali
@@ -309,7 +376,7 @@
     </div>
 
     <div class="section">
-        <div class="section-number">08</div>
+        <div class="section-number">09</div>
         <div class="section-title">Modifiche alla Privacy Policy</div>
         <p>Lo sviluppatore si riserva il diritto di aggiornare la presente informativa. Le modifiche saranno pubblicate su questa pagina con l'aggiornamento della data in cima al documento.</p>
         <p>L'uso continuato dell'app dopo le modifiche costituisce accettazione della nuova informativa.</p>
