@@ -37,7 +37,6 @@
             padding: 64px 40px 96px;
         }
 
-        /* Header ornament */
         .ornament {
             display: flex;
             align-items: center;
@@ -47,7 +46,6 @@
         .ornament-line { flex: 1; height: 0.5px; background: var(--border2); }
         .ornament-symbol { color: var(--gold); font-size: 20px; letter-spacing: 8px; }
 
-        /* App header */
         .header { text-align: center; margin-bottom: 16px; }
         .header-eyebrow {
             font-size: 13px;
@@ -70,7 +68,6 @@
             letter-spacing: 1.5px;
         }
 
-        /* Diamond separator */
         .diamond-sep {
             display: flex;
             align-items: center;
@@ -81,7 +78,6 @@
         .diamond-sep .d1 { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
         .diamond-sep .d2 { width: 4px; height: 4px; background: var(--border2); transform: rotate(45deg); flex-shrink: 0; }
 
-        /* Last update badge */
         .badge {
             display: inline-block;
             background: var(--bg3);
@@ -94,7 +90,6 @@
             margin-bottom: 40px;
         }
 
-        /* Section */
         .section {
             margin-bottom: 40px;
             background: var(--bg2);
@@ -150,7 +145,6 @@
             top: 12px;
         }
 
-        /* Highlight box */
         .highlight {
             background: var(--bg3);
             border-left: 2px solid var(--gold);
@@ -163,7 +157,6 @@
             line-height: 1.75;
         }
 
-        /* Permission table */
         .perm-table {
             width: 100%;
             border-collapse: collapse;
@@ -197,7 +190,6 @@
             font-size: 17px;
         }
 
-        /* Contact section */
         .contact-box {
             background: var(--bg3);
             border: 0.5px solid var(--border2);
@@ -232,11 +224,9 @@
         }
         .contact-box a:hover { color: var(--gold3); border-color: var(--gold); }
 
-        /* Footer */
         .footer { margin-top: 64px; text-align: center; }
         .footer-text { font-size: 13px; color: var(--text3); letter-spacing: 2px; }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .page { padding: 40px 20px 64px; }
             .header-title { font-size: 44px; }
@@ -274,25 +264,51 @@
         <div class="section-number">01</div>
         <div class="section-title">Introduzione</div>
         <p>Poesie App è un'applicazione mobile per Android che consente agli utenti di creare, gestire e conservare la propria raccolta personale di poesie, con sincronizzazione tramite Google Drive.</p>
-        <p>La presente informativa descrive in modo trasparente quali dati vengono trattati, come vengono utilizzati e quali diritti hai come utente.</p>
-        <div class="highlight">Lo sviluppatore non raccoglie, non archivia e non ha accesso ai contenuti delle tue poesie né ai tuoi dati personali.</div>
+        <p>La presente informativa descrive in modo trasparente quali dati vengono trattati, come vengono utilizzati, quali diritti hai come utente e come proteggiamo le tue informazioni.</p>
+        <div class="highlight">Lo sviluppatore non raccoglie, non archivia e non ha accesso ai contenuti delle tue poesie. I dati personali sono trattati esclusivamente per il funzionamento del servizio.</div>
     </div>
 
     <div class="section">
         <div class="section-number">02</div>
+        <div class="section-title">Titolare del trattamento</div>
+        <p>Il titolare del trattamento dei dati personali è:</p>
+        <ul>
+            <li><strong>Edoardo Stoffa</strong> — Sviluppatore indipendente</li>
+            <li>Email: <a href="mailto:supporto.poesie.app@gmail.com" style="color: var(--gold2);">supporto.poesie.app@gmail.com</a></li>
+        </ul>
+        <p>Per qualsiasi richiesta relativa alla privacy, puoi contattare il titolare all'indirizzo email indicato.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-number">03</div>
         <div class="section-title">Dati trattati</div>
         <p>L'app accede ai seguenti dati esclusivamente per il corretto funzionamento del servizio:</p>
         <ul>
             <li>Indirizzo email dell'account Google, visualizzato nella schermata impostazioni dell'app</li>
             <li>File <strong>Poesie.docx</strong> creato dall'app nel tuo Google Drive personale</li>
-            <li>Token di autenticazione OAuth 2.0, salvato localmente sul dispositivo</li>
+            <li>Token di autenticazione OAuth 2.0, salvato localmente sul dispositivo tramite sistema operativo sicuro</li>
             <li>Immagini selezionate dalla galleria fotografica del dispositivo, utilizzate esclusivamente per impostare la copertina personalizzata della raccolta</li>
+            <li>Codice OTP temporaneo generato dall'app durante il recupero dell'accesso (valido 10 minuti, non archiviato permanentemente)</li>
         </ul>
-        <p>Nessun dato viene inviato a server di terze parti o dello sviluppatore.</p>
+        <p>Nessun dato viene archiviato su server propri dello sviluppatore.</p>
     </div>
 
     <div class="section">
-        <div class="section-number">03</div>
+        <div class="section-number">04</div>
+        <div class="section-title">Recupero accesso via email (OTP)</div>
+        <p>Per il recupero dell'accesso in caso di smarrimento della password, l'app utilizza un servizio di invio email temporanee:</p>
+        <ul>
+            <li>L'indirizzo email viene inviato temporaneamente a un <strong>Worker Cloudflare</strong> per la generazione e l'invio del codice OTP</li>
+            <li>Il codice OTP ha una durata di <strong>10 minuti</strong> e viene eliminato automaticamente dopo la verifica o allo scadere del tempo</li>
+            <li>L'email viene inviata tramite <strong>SendGrid</strong> (Twilio Inc.), un servizio di posta elettronica certificato</li>
+            <li>Lo sviluppatore non memorizza l'indirizzo email né il codice OTP sui propri sistemi</li>
+            <li>È previsto un <strong>rate limit</strong> di una richiesta per minuto per prevenire spam e abusi</li>
+        </ul>
+        <div class="highlight">Il trattamento dei dati per l'invio OTP si basa sull'art. 6, par. 1, lett. b) del GDPR (esecuzione del contratto/servizio richiesto dall'utente). I dati sono conservati solo per il tempo strettamente necessario all'invio e alla verifica del codice.</div>
+    </div>
+
+    <div class="section">
+        <div class="section-number">05</div>
         <div class="section-title">Google Drive</div>
         <p>L'app utilizza le API di Google Drive con scope <strong>drive.file</strong>, che limita l'accesso esclusivamente ai file creati dall'app stessa.</p>
         <ul>
@@ -301,24 +317,26 @@
             <li>Il file Poesie.docx rimane di tua proprietà e sotto il tuo controllo</li>
             <li>Puoi revocare l'accesso in qualsiasi momento dalle impostazioni Google</li>
         </ul>
-        <div class="highlight">Puoi revocare i permessi dell'app visitando myaccount.google.com → Sicurezza → App con accesso al tuo account.</div>
+        <div class="highlight">Puoi revocare i permessi dell'app visitando <a href="https://myaccount.google.com/permissions" target="_blank" style="color: var(--gold2);">myaccount.google.com → Sicurezza → App con accesso al tuo account</a>.</div>
     </div>
 
     <div class="section">
-        <div class="section-number">04</div>
-        <div class="section-title">Archiviazione locale</div>
-        <p>I seguenti dati vengono salvati localmente sul tuo dispositivo nella cartella privata dell'app, non accessibile ad altre applicazioni:</p>
+        <div class="section-number">06</div>
+        <div class="section-title">Archiviazione locale e sicurezza</div>
+        <p>I seguenti dati vengono salvati localmente sul tuo dispositivo nella cartella privata dell'app, protetta dal sistema operativo Android e non accessibile ad altre applicazioni:</p>
         <ul>
-            <li>Token OAuth 2.0 per il mantenimento della sessione Google</li>
+            <li>Token OAuth 2.0 per il mantenimento della sessione Google (crittografato dal sistema operativo)</li>
             <li>Copia temporanea del file Poesie.docx durante la modifica</li>
             <li>Preferenze dell'app come la lingua selezionata</li>
             <li>Immagine di copertina personalizzata, salvata nella directory AppDataDirectory del dispositivo</li>
+            <li>Codice OTP in memoria volatile durante il processo di recupero accesso (massimo 10 minuti)</li>
         </ul>
         <p>Questi dati vengono eliminati automaticamente alla disinstallazione dell'app o manualmente tramite la funzione "Disconnetti" nelle impostazioni.</p>
+        <div class="highlight">Tutte le comunicazioni di rete (app → Worker Cloudflare → SendGrid) avvengono esclusivamente tramite protocollo HTTPS con crittografia TLS 1.2 o superiore.</div>
     </div>
 
     <div class="section">
-        <div class="section-number">05</div>
+        <div class="section-number">07</div>
         <div class="section-title">Permessi richiesti</div>
         <p>Per funzionare correttamente, l'app richiede i seguenti permessi Android:</p>
         <table class="perm-table">
@@ -339,7 +357,7 @@
                 </tr>
                 <tr>
                     <td>Internet</td>
-                    <td>Comunicazione con le API di Google per l'autenticazione e la sincronizzazione su Google Drive</td>
+                    <td>Comunicazione con le API di Google per l'autenticazione e la sincronizzazione su Google Drive; comunicazione sicura con il Worker Cloudflare per il servizio OTP</td>
                 </tr>
             </tbody>
         </table>
@@ -347,45 +365,61 @@
     </div>
 
     <div class="section">
-        <div class="section-number">06</div>
-        <div class="section-title">Condivisione con terze parti</div>
-        <p>Lo sviluppatore non condivide, non vende e non cede a terze parti alcun dato dell'utente.</p>
-        <p>L'unica terza parte coinvolta è Google LLC, per il servizio di autenticazione e archiviazione tramite Google Drive. Il trattamento dei dati da parte di Google è regolato dalla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>.</p>
-    </div>
-
-    <div class="section">
-        <div class="section-number">07</div>
-        <div class="section-title">Diritti dell'utente</div>
-        <p>In qualità di utente hai il diritto di:</p>
-        <ul>
-            <li>Accedere ai tuoi dati in qualsiasi momento tramite Google Drive</li>
-            <li>Eliminare il file Poesie.docx direttamente dall'app o da Google Drive</li>
-            <li>Revocare l'accesso dell'app al tuo account Google</li>
-            <li>Disinstallare l'app eliminando tutti i dati locali</li>
-        </ul>
-    </div>
-
-    <div class="section">
         <div class="section-number">08</div>
-        <div class="section-title">Minori</div>
-        <p>Poesie App non è destinata a utenti di età inferiore ai 14 anni.
-            Lo sviluppatore non raccoglie consapevolmente dati personali
-            di minori di 14 anni. In conformità al Regolamento Europeo
-            sulla protezione dei dati (GDPR), il trattamento dei dati
-            di minori richiede il consenso dei genitori o tutori legali.</p>
+        <div class="section-title">Condivisione con terze parti</div>
+        <p>Lo sviluppatore non condivide, non vende e non cede a terze parti alcun dato personale dell'utente.</p>
+        <p>I seguenti servizi di terze parti sono utilizzati esclusivamente per il funzionamento tecnico dell'app:</p>
+        <ul>
+            <li><strong>Google LLC</strong> — Autenticazione OAuth 2.0 e archiviazione su Google Drive. <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--gold2);">Privacy Policy Google</a></li>
+            <li><strong>Cloudflare, Inc.</strong> — Worker serverless per l'elaborazione temporanea delle richieste OTP. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" style="color: var(--gold2);">Privacy Policy Cloudflare</a></li>
+            <li><strong>Twilio Inc. (SendGrid)</strong> — Invio email per il servizio OTP. <a href="https://www.twilio.com/legal/privacy" target="_blank" style="color: var(--gold2);">Privacy Policy Twilio</a></li>
+        </ul>
+        <p>Tutti i servizi sono conformi al GDPR e operano come responsabili del trattamento ai sensi dell'art. 28 del Regolamento.</p>
     </div>
 
     <div class="section">
         <div class="section-number">09</div>
+        <div class="section-title">Diritti dell'utente (GDPR)</div>
+        <p>In qualità di interessato, ai sensi degli artt. 15-22 del Regolamento UE 2016/679 (GDPR), hai il diritto di:</p>
+        <ul>
+            <li><strong>Accesso</strong> — Ottenere conferma del trattamento dei tuoi dati e una copia degli stessi</li>
+            <li><strong>Rettifica</strong> — Richiedere la correzione di dati inesatti o l'integrazione di dati incompleti</li>
+            <li><strong>Cancellazione</strong> — Richiedere l'eliminazione dei tuoi dati ("diritto all'oblio")</li>
+            <li><strong>Limitazione</strong> — Richiedere la limitazione del trattamento in determinate circostanze</li>
+            <li><strong>Portabilità</strong> — Ricevere i tuoi dati in formato strutturato e trasferirli a un altro titolare</li>
+            <li><strong>Opposizione</strong> — Opporsi al trattamento basato sul legittimo interesse</li>
+            <li><strong>Reclamo</strong> — Proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" style="color: var(--gold2);">www.garanteprivacy.it</a>)</li>
+        </ul>
+        <p>Per esercitare i tuoi diritti, contatta il titolare all'indirizzo email indicato nella sezione 02.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-number">10</div>
+        <div class="section-title">Minori</div>
+        <p>Poesie App non è destinata a utenti di età inferiore ai 14 anni. Lo sviluppatore non raccoglie consapevolmente dati personali di minori di 14 anni.</p>
+        <p>In conformità al Regolamento Europeo sulla protezione dei dati (GDPR) e al Codice in materia di protezione dei dati personali (D.Lgs. 196/2003), il trattamento dei dati di minori richiede il consenso dei genitori o tutori legali.</p>
+        <p>Se ritieni che un minore ci abbia fornito dati personali senza il consenso dei genitori, contattaci per richiederne la rimozione.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-number">11</div>
+        <div class="section-title">Cookie e tecnologie simili</div>
+        <p>L'applicazione mobile Poesie App <strong>non utilizza cookie</strong> né tecnologie di tracciamento.</p>
+        <p>La presente pagina web (privacy policy) potrebbe utilizzare cookie tecnici essenziali per il funzionamento del sito. Nessun cookie di profilazione o tracciamento è attivo.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-number">12</div>
         <div class="section-title">Modifiche alla Privacy Policy</div>
-        <p>Lo sviluppatore si riserva il diritto di aggiornare la presente informativa. Le modifiche saranno pubblicate su questa pagina con l'aggiornamento della data in cima al documento.</p>
-        <p>L'uso continuato dell'app dopo le modifiche costituisce accettazione della nuova informativa.</p>
+        <p>Lo sviluppatore si riserva il diritto di aggiornare la presente informativa per adeguarla a modifiche normative o miglioramenti del servizio.</p>
+        <p>Le modifiche saranno pubblicate su questa pagina con l'aggiornamento della data in cima al documento. Ti invitiamo a consultare periodicamente la presente informativa.</p>
+        <p>L'uso continuato dell'app dopo la pubblicazione delle modifiche costituisce accettazione della nuova informativa.</p>
     </div>
 
     <div class="contact-box">
         <div class="contact-label">CONTATTI</div>
-        <div class="contact-title">Hai domande?</div>
-        <p>Per qualsiasi domanda relativa alla privacy puoi contattare lo sviluppatore:</p>
+        <div class="contact-title">Hai domande sulla privacy?</div>
+        <p>Per esercitare i tuoi diritti o per qualsiasi domanda relativa alla privacy, contatta il titolare del trattamento:</p>
         <a href="mailto:supporto.poesie.app@gmail.com">supporto.poesie.app@gmail.com</a>
     </div>
 
