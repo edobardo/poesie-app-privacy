@@ -268,7 +268,7 @@
     <section class="section">
         <div class="section-number">01</div>
         <h2 class="section-title">Introduzione</h2>
-        <p>Poesie App e' un'applicazione mobile per Android che consente agli utenti di creare, gestire e conservare la propria raccolta personale di poesie, con sincronizzazione tramite Google Drive.</p>
+        <p>Poesie App e' un'applicazione mobile per Android che consente agli utenti di creare, gestire e conservare la propria raccolta personale di poesie, con sincronizzazione tramite Google Drive. L'app supporta piu' raccolte indipendenti, ciascuna con la propria copertina e il proprio file su Drive.</p>
         <p>L'app offre una versione gratuita e una versione <strong>Premium</strong> acquistabile tramite acquisto in-app singolo (one-time purchase) attraverso Google Play. La presente informativa descrive quali dati vengono trattati, per quali finalita', e quali diritti hai come utente.</p>
         <div class="highlight">Lo sviluppatore non raccoglie ne' archivia su propri server i contenuti delle tue poesie. La raccolta rimane sul tuo dispositivo e nel tuo Google Drive.</div>
     </section>
@@ -292,13 +292,14 @@
         <p>L'app tratta i seguenti dati esclusivamente per il funzionamento del servizio:</p>
         <ul>
             <li>Indirizzo email dell'account Google (visualizzato nella schermata impostazioni dopo la connessione a Drive)</li>
-            <li>File <strong>Poesie.docx</strong> creato/aggiornato dall'app nel tuo Google Drive personale (scope <em>drive.file</em>)</li>
+            <li>File <strong>.docx</strong> di ciascuna raccolta, creati/aggiornati dall'app nel tuo Google Drive personale (scope <em>drive.file</em>)</li>
             <li>Token di autenticazione OAuth 2.0 (salvato localmente tramite meccanismi sicuri del sistema operativo)</li>
-            <li>Preferenze dell'app (es. lingua selezionata, stato attivazione Premium)</li>
+            <li>Preferenze dell'app (es. lingua selezionata, tema visivo, stato attivazione Premium, lista raccolte)</li>
             <li>Immagine di copertina personalizzata selezionata dall'utente tramite picker di sistema (salvata nella directory privata dell'app)</li>
             <li>Password di blocco: l'app salva solo un <strong>hash</strong> (non la password in chiaro) in area protetta del dispositivo</li>
             <li>Codice di recupero (recovery code) salvato in area protetta del dispositivo per consentire il reset della password in caso di smarrimento</li>
             <li><strong>Token di acquisto Premium</strong> (purchase token Google Play) &mdash; salvato in area protetta del dispositivo per verificare la validita' dell'acquisto con Google Play Billing; non e' mai condiviso con lo sviluppatore</li>
+            <li>File di backup locale cifrato (archivio ZIP protetto da password) &mdash; generato su richiesta dell'utente e salvato in cache locale; non inviato a terzi</li>
         </ul>
         <p>Nessun dato viene archiviato su server propri dello sviluppatore.</p>
     </section>
@@ -309,9 +310,10 @@
         <h2 class="section-title">Finalita' e base giuridica</h2>
         <p>I dati sono trattati per:</p>
         <ul>
-            <li><strong>Sincronizzazione e salvataggio</strong> della raccolta su Google Drive</li>
-            <li><strong>Funzioni di sicurezza</strong> (blocco app, recovery code)</li>
-            <li><strong>Funzionalita' richieste dall'utente</strong> (copertina, preferenze lingua)</li>
+            <li><strong>Sincronizzazione e salvataggio</strong> delle raccolte su Google Drive</li>
+            <li><strong>Funzioni di sicurezza</strong> (blocco app tramite PIN o biometria, recovery code, cifratura locale del file, overlay di sicurezza)</li>
+            <li><strong>Funzionalita' richieste dall'utente</strong> (copertina, preferenze lingua, tema visivo, tag, preferiti, widget streak, backup locale)</li>
+            <li><strong>Notifiche locali</strong> (promemoria streak di scrittura, ripristinate al riavvio del dispositivo)</li>
             <li><strong>Gestione acquisti in-app</strong> (verifica e ripristino dell'acquisto Premium tramite Google Play Billing)</li>
         </ul>
         <div class="highlight">
@@ -341,11 +343,12 @@
         <p>I seguenti dati vengono salvati localmente nella cartella privata dell'app, protetta dal sistema operativo e non accessibile ad altre applicazioni:</p>
         <ul>
             <li>Token OAuth 2.0 (in archiviazione sicura del sistema operativo)</li>
-            <li>File della raccolta in cache locale (con cifratura lato app e rimozione automatica della copia in chiaro quando l'app va in background)</li>
-            <li>Preferenze (es. lingua, stato Premium)</li>
-            <li>Copertina personalizzata (solo il file selezionato dall'utente)</li>
-            <li>Password hash + recovery code in area protetta</li>
+            <li>File di ciascuna raccolta in cache locale, <strong>cifrati con AES</strong> lato app; la copia in chiaro viene rimossa automaticamente quando l'app va in background o viene oscurata dall'overlay di sicurezza</li>
+            <li>Preferenze (es. lingua, tema visivo, stato Premium, lista raccolte e relative configurazioni)</li>
+            <li>Copertine personalizzate (solo i file selezionati dall'utente tramite picker di sistema)</li>
+            <li>Password hash + recovery code in area protetta (SecureStorage)</li>
             <li>Token di acquisto Premium (purchase token) in area protetta, usato esclusivamente per verifiche locali con Google Play</li>
+            <li>File di backup locale (archivio ZIP cifrato con password fornita dall'utente), generato solo su richiesta esplicita e conservato in cache temporanea</li>
         </ul>
         <p>Questi dati vengono eliminati automaticamente alla disinstallazione dell'app. E' inoltre possibile rimuovere la sessione Drive tramite "Disconnetti" nelle impostazioni.</p>
         <div class="highlight">Le comunicazioni di rete (app &rarr; Google) avvengono esclusivamente tramite HTTPS (TLS).</div>
@@ -414,7 +417,7 @@
         <div class="section-number">08</div>
         <h2 class="section-title">Versione Premium e acquisti in-app</h2>
         <p>Poesie App offre un acquisto in-app <strong>singolo e permanente</strong> (one-time purchase) tramite Google Play Billing.</p>
-        <p>L'attivazione della versione Premium consente di sbloccare funzionalita' aggiuntive dell'app (es. temi visivi esclusivi, backup avanzato, funzioni avanzate dell'editor). Queste funzionalita' sono gestite interamente in locale sul dispositivo.</p>
+        <p>L'attivazione della versione Premium consente di sbloccare funzionalita' aggiuntive dell'app (es. temi visivi aggiuntivi, funzioni avanzate dell'editor, funzionalita' di esportazione avanzate). Queste funzionalita' sono gestite interamente in locale sul dispositivo, senza necessita' di un account separato.</p>
         <p>In relazione all'acquisto Premium, l'app tratta i seguenti dati:</p>
         <ul>
             <li><strong>Purchase token</strong> &mdash; un identificativo opaco generato da Google Play, salvato in area protetta del dispositivo (<em>SecureStorage</em>). Viene utilizzato esclusivamente per verificare la validita' dell'acquisto con le API di Google Play Billing e non viene mai inviato allo sviluppatore ne' a terze parti diverse da Google LLC.</li>
